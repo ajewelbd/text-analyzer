@@ -1,0 +1,17 @@
+{
+  "name": "text-analyzer",
+  "version": "1.0.0",
+  "description": "An application that reads contents from a text file and calculates some parameters. It will calculate the count of words, characters, paragraphs, and more.",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
