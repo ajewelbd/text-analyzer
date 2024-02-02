@@ -7,22 +7,22 @@ class TextAnalyzer {
 		this.text = text;
 	}
 
-	removePunctuation() {
+	removePunctuation(text) {
 		const punctuationRegex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
-		const text = this.text
+		const formattedText = text
 			.replace(punctuationRegex, "")
 			.replace(/\r?\n\s*\r?\n/g, " ");
-		return text;
+		return formattedText;
 	}
 
 	countCharacters() {
-		const text = this.removePunctuation();
+		const text = this.removePunctuation(this.text);
 		return text.length;
 	}
 
 	countWords() {
-		const text = this.removePunctuation();
-		const words = text.split(" ");
+		const text = this.removePunctuation(this.text);
+		const words = text.split(/\s+/);
 		return words.length;
 	}
 
@@ -47,10 +47,11 @@ class TextAnalyzer {
 
 	getLongestWordsInPragraphs() {
 		const paragraphs = this.countParagraphs(false);
-		const longestWordsInPragraphs = {};
+		const longestWordsInPragraphs = [];
 
-		paragraphs.forEach((paragraph, index) => {
-			const words = paragraph.split(/\s+/);
+		paragraphs.forEach((paragraph) => {
+			const textWitoutPunctuation = this.removePunctuation(paragraph);
+			const words = textWitoutPunctuation.split(/\s+/);
 			let longestWord = "";
 			let longestWords = [];
 			words.forEach((word) => {
@@ -67,7 +68,7 @@ class TextAnalyzer {
 				}
 			});
 
-			longestWordsInPragraphs[`paragraph_${index + 1}`] = longestWords;
+			longestWordsInPragraphs.push(longestWords);
 		});
 
 		return longestWordsInPragraphs;

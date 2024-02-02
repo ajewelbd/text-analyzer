@@ -1,21 +1,31 @@
 const express = require("express");
 const router = express.Router();
 const fs = require("fs");
+const path = require("path");
 const TextAnalyzer = require("./text-analyzer");
 
-const filePath = "./sample.txt";
+const docPath = "./sample.txt";
 let text = "";
 try {
-	text = fs.readFileSync(filePath, "utf8");
+	text = fs.readFileSync(docPath, "utf8");
 } catch (error) {
 	console.log("Failed to load file", error);
 }
 
 const analyzer = new TextAnalyzer(text);
 
-router.get("/", async (req, res) => {
-	const msg = "Welcome to text analyzer apllication";
-	res.json({ msg });
+router.get("/", (req, res) => {
+	try {
+		const filePath = path.join(`${__dirname}`, "../views/analysis.html");
+		res.sendFile(filePath);
+	} catch (error) {
+		console.error(`Error reading HTML file: ${error.message}`);
+		res.status(500).send("Failed to load the content!");
+	}
+});
+
+router.get("/analysing-text", (req, res) => {
+	res.json({ text });
 });
 
 router.get("/word-count", (req, res) => {

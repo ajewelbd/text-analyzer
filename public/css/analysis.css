@@ -1,0 +1,57 @@
+body {
+    background-color: #f8fafc;
+    color: #334155;
+}
+
+h1 {
+    margin-bottom: 0;
+}
+
+.container {
+    margin: 150px 150px 0 150px;
+    background-color: #fff;
+    border-radius: 19px;
+    padding: 25px 50px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.gap-y-15 {
+    column-gap: 15px;
+}
+
+.gap-x-25 {
+    row-gap: 25px;
+}
+
+.gap-y-25 {
+    column-gap: 25px;
+}
+
+.border-top {
+    border-top: 1px solid #cbd5e1;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.title {
+    font-weight: 600;
+    text-align: center;
+}
+
+#analysing-text, .longest-words {
+    font-style: italic;
+}
