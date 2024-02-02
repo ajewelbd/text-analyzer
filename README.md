@@ -32,6 +32,8 @@ git clone https://github.com/ajewelbd/text-analyzer
 
 -   Execute `npm run dev` in the terminal.
 -   The server will run on http://localhost:5000 by default.
+-   In the home page `http://localhost:5000` an User Interface will be displayed with analyzed information.
+    ![Home Page preview](preview.png)
 
 ### 3. Using the APIs:
 
